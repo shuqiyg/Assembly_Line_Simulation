@@ -1,0 +1,18 @@
+This Assembly Line term project has been a great challenge yet very interesting, it has tested our C++ Object Oriented skills from many different aspects. It strengthens my understanding of the topics in this semester and gives me the opportunity to put everything that I’ve learned into practise. 
+
+The Utilities module offers the functionality to tokenize strings inputs, by tracking the position of a delimiter and the end of a line, we are able to dissect the string and extract information we need(std::string Utilities::extractToken), we use make use of this module in CustomerOrder, Workstation and LineManager.
+
+The is-a relationship between Workstation and Station is an example of polymorphism, as Workstation being an concrete class and inherits all the attributes and functionalities from Station while defining its own unique ones. For example, within function void Workstation::display(std::ostream& os) const, getItemName() from Station is called. 
+
+We also utilize the <iomanip> library to format our outputs, using std::setw(), std::setfill(), std::left and std::right.
+
+In CustomerOrder module, we need to manage the resource of the dynamically allocated array of pointers. In the move assignment operator, we deep copy every element inside the m_lstItem, and in the destructor, we free the memory by deallocating them so prevent any memory leak.
+
+For global varibales deuqe pending, completed and incomplete, we declare them with extern in the header file of Workstation and initialize them in the cpp file, so they can be access through the whole program by different translation units.
+
+The <fstream> library helps us to create ifstream object to obtain data from the files( std::ifstream ifobj(file) ).
+
+With the help of STL algorithm, we are able to manipulate the data within the containers(deque, vector). For example, std::find_if(stations.begin(), stations.end(), [&](Workstation* wkst_ptr) {return wkst_ptr->getItemName() == wrk_st_string; })  finds us the station the matches the ItemName inside the stations vector. And std::for_each(activeLine.begin(), activeLine.end(), [&](Workstation* ptr_wkst) { ptr_wkst->fill(os); }) have every station in the activeLine fill the CustomerOrder. This is such a powerful tool that saves us lines of code, which increases both efficiency and accuracy.
+
+Overall, it’s been an unforgettable experience working on this project, and it really inspires me of many possibilities of programming, especially when it comes to real-life problem solving.
+
